@@ -13,6 +13,12 @@ balance=$( curl -s https://insight.bitpay.com/api/addr/${addr}/balance )
 echo "btc:" ${addr} ${priv} ${balance}
 
 
+#btc[p2sh-p2wpkh]-------------------------------------------------------
+addr=$( node gen_p2sh_p2wpkh_addr.js "${priv}")
+balance=$( curl -s https://insight.bitpay.com/api/addr/${addr}/balance )
+echo "btc:" ${addr} ${priv} ${balance}
+
+
 #btc[p2wpkh]-------------------------------------------------------
 addr=$( node gen_p2wpkh_addr.js "${priv}")
 #addr=17iyRRXBHJKbv5DKPPkttWewm3CHdNPGQd
