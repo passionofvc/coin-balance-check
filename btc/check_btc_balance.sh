@@ -21,7 +21,6 @@ echo "btc:" ${addr} ${priv} ${balance}
 
 #btc[p2wpkh]-------------------------------------------------------
 addr=$( node gen_p2wpkh_addr.js "${priv}")
-#addr=17iyRRXBHJKbv5DKPPkttWewm3CHdNPGQd
 balance=$( curl -s https://blockstream.info/api/address/${addr} | jq .chain_stats )
 fund=$(echo ${balance}  | jq .funded_txo_sum )
 spent=$(echo ${balance} | jq .spent_txo_sum  )

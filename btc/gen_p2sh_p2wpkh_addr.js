@@ -19,7 +19,6 @@ const net = btc_mainnet
 const key_in=process.argv[2]
 var privateKey = Buffer.from(key_in)
 var key = wif.encode(128, privateKey, true)
-//key='L2hfzPyVC1jWH7n2QLTe7tVTb6btg9smp5UVzhEBxLYaSFF7sCZB'
 
 let keyPair = bitcoin.ECPair.fromWIF(key, net)
 let p2wpkh = bitcoin.payments.p2wpkh({ pubkey: keyPair.publicKey, network:net })
