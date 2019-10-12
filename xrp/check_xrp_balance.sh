@@ -18,8 +18,8 @@ END
 
 balance=$(echo $balance | jq -r '.result.account_data.Balance')
 if [[ "${balance}" == "null" ]]; then
-    echo ${account_id} ${priv} "0"
+    echo "xrp: "${account_id} "           "${priv} "0"
 else
-    echo ${account_id} ${priv} ${balance}
+    echo "xrp: "${account_id} "           "${priv} ${balance}
 fi
 
