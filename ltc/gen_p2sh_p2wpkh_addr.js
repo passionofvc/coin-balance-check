@@ -30,7 +30,7 @@ const mainnet= {
 const net=mainnet
 //const net=testnet
 const key_in=process.argv[2]
-var privateKey = Buffer.from(key_in)
+var privateKey = Buffer.from(key_in, 'hex')
 var key = wif.encode(128, privateKey, true)
 
 
