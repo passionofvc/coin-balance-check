@@ -65,27 +65,4 @@ if [[ "${balance}" != "0" ]]; then
 fi
 
 #xrp
-account_id=$( node xrp_md5_2_address.js "$@" )
-host_url=https://s1.ripple.com:51234
-balance=$(curl -s -X POST "$host_url" -d @- <<-END
-{
-     "method" : "account_info",
-     "params": [
-      {
-        "account": "${account_id}",
-        "strict" : true,
-        "ledger_index": "validated"
-      }
-     ]
-}
-END
-)
-
-balance=$(echo $balance | jq -r '.result.account_data.Balance')
-#echo ${account_id} ${master_seed} ${balance}
-if [[ "${balance}" = "null" ]]; then
-    echo ${account_id} ${master_seed} "0"
-else
-    echo ${account_id} ${master_seed} ${balance}
-fi
-
+ ( cd xrp && bash check_xrp_balance_b.sh "$@" )
