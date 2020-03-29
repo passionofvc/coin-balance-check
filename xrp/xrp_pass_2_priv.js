@@ -22,6 +22,10 @@ var sha512hash=sha512hex(process.argv[2])
 var hexSeed = sha512hash.substring(0,32)
 const seed_from_hex_secret = rs_api.encodeHex(hexSeed).secret_b58
 //console.log('xrp', seed_from_hex_secret)
-const keypair = rippleKeyPairs.deriveKeypair(seed_from_hex_secret)
-const address = rippleKeyPairs.deriveAddress(keypair.publicKey)
-console.log(address)
+//const keypair = rippleKeyPairs.deriveKeypair(seed_from_hex_secret)
+//const address = rippleKeyPairs.deriveAddress(keypair.publicKey)
+//console.log(seed_from_hex_secret)
+const keypair  = rippleKeyPairs.deriveKeypair(seed_from_hex_secret);
+console.log(keypair.privateKey.slice(2))
+
+
